@@ -20,9 +20,6 @@ class RUGPage extends Page {
 		'Phone' => 'Varchar(15)',
 		'Cell' => 'Varchar(15)',
 		'DNI' => 'Varchar(15)',
-		#'PicL' => 'Image',
-		#'PicM' => 'Image',
-		#'PicThumb' => 'Image',
 		'RUGVersion' => 'Float',
 		'Nationality' => 'Varchar(2)',
 		'Seed' => 'Varchar(15)'
@@ -51,10 +48,21 @@ class RUGPage extends Page {
 		$fields->addFieldToTab('Root.Technical', TextField::create('SHA1', 'SHA1'));
 		$fields->addFieldToTab('Root.Technical', TextField::create('SHA256', 'SHA256'));
 
+		$fields->addFieldToTab('Root.Pictures', $picl = UploadField::create('PicL', 'A Large Picture'));
+		$fields->addFieldToTab('Root.Pictures', $picm = UploadField::create('PicM', 'A Medium Picture'));
+		$fields->addFieldToTab('Root.Pictures', $picthumb = UploadField::create('PicThumb', 'A Thumbnail'));
+
+		$picl->setFolderName('large-pictures');
+		$picm->setFolderName('medium-pictures');
+		$picthumb->setFolderName('thumbnails');
+
 		return $fields;
 	}
 
 	private static $has_one = array(
+		'PicL' => 'Image',
+		'PicM' => 'Image',
+		'PicThumb' => 'Image',
 	);
 
 	private static $can_be_root = false;

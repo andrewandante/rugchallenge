@@ -7,6 +7,9 @@
 				<% loop $Children %>
 					<div>
 						<h2><a href="$Link">$Name</a></h2>
+						<% with $PicThumb %>
+						<img src="$URL" alt="" />
+						<% end_with %>
 					</div>
 				<% end_loop %>
 			<% else %>

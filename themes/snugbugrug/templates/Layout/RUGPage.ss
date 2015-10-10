@@ -3,16 +3,18 @@
 	<article>
 		<h1>$Name</h1>
 		<div class="content">
-      <h2>$Email</h2>
-      <h2>$Username</h2>
+      <h2>$Email, ($Username)</h2>
+      <img src='$PicL.URL' alt="">
     </div>
     <div class="content">
-      <h2>Address Information</h2>
-      <h3>$Street</h3>
-      <h3>$City</h3>
-      <h3>$State</h3>
-      <h3>$Zip</h3>
-      <h3>$Nationality</h3>
+      <h3>Address Information</h3>
+      <ul>
+        <li>$Street</li>
+        <li>$City</li>
+        <li>$State</li>
+        <li>$Zip</li>
+        <li>$Nationality</li>
+      </ul>
     </div>
     <div class="content">
       $Content
