@@ -1,0 +1,21 @@
+<% include SideBar %>
+<div class="content-container unit size3of4 lastUnit">
+	<article>
+		<h1>$Title</h1>
+		<div class="content">
+			<% if $Children %>
+				<% loop $Children %>
+					<div>
+						<h2><a href="$Link">$Name</a></h2>
+					</div>
+				<% end_loop %>
+			<% else %>
+				<div>
+					<h2>No users generated!</h2>
+				</div>
+			<% end_if %>
+		</div>
+	</article>
+		$Form
+		$CommentsForm
+</div>

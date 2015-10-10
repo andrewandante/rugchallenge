@@ -23,17 +23,17 @@ class RUGPage extends Page {
 		#'PicL' => 'Image',
 		#'PicM' => 'Image',
 		#'PicThumb' => 'Image',
-		'Version' => 'Float',
+		'RUGVersion' => 'Float',
 		'Nationality' => 'Varchar(2)',
 		'Seed' => 'Varchar(15)'
 	);
 
 	public function getCMSFields() {
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab('Root.Main', TextField::create('Name', 'Name of User'));
-		$fields->addFieldToTab('Root.Main', TextField::create('Username', 'Username'));
-		$fields->addFieldToTab('Root.Main', TextField::create('Email', 'Email address'));
-		$fields->addFieldToTab('Root.Main', DropDownField::create('Gender', 'Gender'));
+		$fields->addFieldToTab('Root.Main', TextField::create('Name', 'Name of User'), 'Content');
+		$fields->addFieldToTab('Root.Main', TextField::create('Username', 'Username'), 'Content');
+		$fields->addFieldToTab('Root.Main', TextField::create('Email', 'Email address'), 'Content');
+		$fields->addFieldToTab('Root.Main', DropDownField::create('Gender', 'Gender'), 'Content');
 
 		$fields->addFieldToTab('Root.Contact', TextField::create('Nationality', 'Nationality'));
 		$fields->addFieldToTab('Root.Contact', TextField::create('Street', 'Street Address'));
