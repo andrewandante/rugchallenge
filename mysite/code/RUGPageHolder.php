@@ -23,7 +23,8 @@ class RUGPageHolder_Controller extends Page_Controller {
 
   public function RUGUserForm() {
     $fields = FieldList::create(
-      TextField::create('Name'),
+      TextField::create('First Name'),
+      TextField::create('Surname'),
       TextField::create('Email')
     );
     $actions = FieldList::create(FormAction::create('doRUGUser', 'Generate a Random User!'));
