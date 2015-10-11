@@ -93,12 +93,12 @@ body {
 }
 
 /* LINKS */
-.typography a, 
+.typography a,
 .typography a.intro {
     color: #B80000;
     text-decoration: none;
 }
-  .typography a:hover { 
+  .typography a:hover {
     color: #D80000;
     border-bottom: 1px dashed #B80000;
   }
@@ -107,7 +107,7 @@ body {
 
 /* LIST STYLES
 -------------------------------------------- */
-.typography ul, 
+.typography ul,
 .typography ol,
 .typography dl { margin: 0 0 20px 25px; }
 .typography ul li { list-style-type: disc; } /* adds disc style bullet to the list */
@@ -142,7 +142,7 @@ body {
   }
 
 
-/* WYSIWYG EDITOR ALIGNMENT CLASSES 
+/* WYSIWYG EDITOR ALIGNMENT CLASSES
 -------------------------------------------- */
 .typography .left {
     text-align: left
@@ -155,7 +155,7 @@ body {
 }
 
 
-/* IMAGES 
+/* IMAGES
 -------------------------------------------- */
 .typography img {
     border: 5px solid #d7d7d7;
@@ -265,4 +265,26 @@ body {
 address {
   display: block;
   margin-bottom: 20px;
+}
+
+/* RUGButton Styling
+-------------------------------------------- */
+#RUGButton {
+  float: none;
+  background-color: #ee8800;
+  color: white;
+  width: 80%;
+  text-align: center;
+  border-radius: 5px;
+  display: block;
+  margin: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: solid 1px;
+  border-color: #ff9911;
+  font-size: 15px;
+  padding: 6px 15px;
+}
+#RUGButton:hover {
+  background-color: #dd7700;
 }
