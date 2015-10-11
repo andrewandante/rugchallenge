@@ -1,4 +1,4 @@
-$(document).ready(function callRUGAPI() {
+function callRUGAPI() {
   $.ajax({
     url: 'http://api.randomuser.me/?lego',
     dataType: 'json',
@@ -9,5 +9,5 @@ $(document).ready(function callRUGAPI() {
       }
     }
   });
-});
-$("#RUGButton").click(callRUGAPI(){});
+}
+$("#RUGButton").click(callRUGAPI);
