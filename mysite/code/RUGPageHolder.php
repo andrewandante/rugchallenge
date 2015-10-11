@@ -14,7 +14,7 @@ class RUGPageHolder_Controller extends Page_Controller {
     parent::init();
 
     Requirements::javascript("https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js");
-    Requirements::javascript("$Themedir/javascript/GetRUGUser.js");
+    Requirements::javascript("themes/snugbugrug/javascript/GetRUGUser.js");
   }
 
   static $allowed_actions = array(
@@ -24,7 +24,7 @@ class RUGPageHolder_Controller extends Page_Controller {
   public function RUGUserForm() {
     $fields = FieldList::create(
       TextField::create('Name'),
-      TextField::create('Email'),
+      TextField::create('Email')
 
     );
     $actions = FieldList::create(
