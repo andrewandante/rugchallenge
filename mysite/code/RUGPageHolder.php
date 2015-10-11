@@ -32,9 +32,9 @@ class RUGPageHolder_Controller extends Page_Controller {
   }
 
   public function doRUGUser($data, $form) {
-    $submission = RUGUserFormSub::create();
-    $form->saveInto($submission);
-    $submission->write();
+    $member = Member::create();
+    $form->saveInto($member);
+    $member->write();
     return $this->redirectBack();
   }
 
