@@ -2,5 +2,5 @@
 <script src="$ThemeDir/javascript/GetRUGUser.js"></script>
 
 <div>
-  <a href="getRUGUser.php" id="RUGButton">Click here to make another!</a>
+  <a id="RUGButton">Click here to make another!</a>
 </div>
