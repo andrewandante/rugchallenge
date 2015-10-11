@@ -22,17 +22,20 @@ class RUGPageHolder_Controller extends Page_Controller {
   );
 
   public function RUGUserForm() {
-    $fields = FieldList::create(
-      TextField::create('Name'),
-      TextField::create('Email')
-
+    $fields = array(
+      'Name',
+      'Email'
     );
-    $actions = FieldList::create(
-      FormAction::create('doRUGUser', 'Generate a Random User!')
-    );
-
+    $actions = FieldList::create(FormAction::create('doRUGUser', 'Generate a Random User!'));
     return Form::create($this, 'RUGUserForm', $fields, $actions);
 
+  }
+
+  public function doRUGUser($data, $form) {
+    $submission = RUGUserFormSub::create();
+    $form->saveInto($submission);
+    $submission->write();
+    return $this->redirectBack();
   }
 
 }
