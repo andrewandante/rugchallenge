@@ -287,4 +287,5 @@ address {
 }
 #RUGButton:hover {
   background-color: #dd7700;
+  cursor: pointer;
 }
