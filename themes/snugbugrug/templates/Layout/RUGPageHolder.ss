@@ -3,6 +3,7 @@
 	<article>
 		<h1>$Title</h1>
 		<div><% include RUGButton %></div>
+		$RUGUserForm
 		<div class="content">
 			<% if $Children %>
 				<% loop $Children %>

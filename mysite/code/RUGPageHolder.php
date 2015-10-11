@@ -10,11 +10,28 @@ class RUGPageHolder extends Page {
 }
 class RUGPageHolder_Controller extends Page_Controller {
 
-  public function getRUGUser() {
-    $response = http_get("http://api.randomuser.me/?lego", array("timeout"=>1), $info);
-    echo("lol");
-    echo($info);
-    
+  public function init() {
+    parent::init();
+
+    Requirements::javascript("https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js");
+    Requirements::javascript("$Themedir/javascript/GetRUGUser.js");
+  }
+
+  static $allowed_actions = array(
+    'RUGUserForm'
+  );
+
+  public function RUGUserForm() {
+    $fields = FieldList::create(
+      TextField::create('Name'),
+      TextField::create('Email'),
+
+    );
+    $actions = FieldList::create(
+      FormAction::create('doRUGUser', 'Generate a Random User!')
+    );
+
+    return Form::create($this, 'RUGUserForm', $fields, $actions);
 
   }
 
