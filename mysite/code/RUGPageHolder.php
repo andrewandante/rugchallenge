@@ -23,7 +23,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 
   public function RUGUserForm() {
     $fields = FieldList::create(
-      TextField::create('First Name'),
+      TextField::create('FirstName', 'First Name'),
       TextField::create('Surname'),
       TextField::create('Email')
     );
