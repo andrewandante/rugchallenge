@@ -3,7 +3,7 @@
 	<article>
 		<h1>$Name</h1>
 		<div class="content">
-      <h2>$Email, ($Username)</h2>
+      <h2>$Email ($Username)</h2>
       <img src='$PicL.URL' alt="">
     </div>
     <div class="content">
