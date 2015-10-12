@@ -39,4 +39,21 @@ class RUGPageHolder_Controller extends Page_Controller {
     return $this->redirectBack();
   }
 
+	public static function getRUGUser(){
+		$var = Convert::raw2sql($_GET['variable']);
+		if ($var == '?getuser') {
+			$getfield = "?nat=au";
+		} elseif ($var == '?gogolego') {
+			$getfield = "?lego";
+			$isLego = true;
+		} else {
+			$getfield = false;
+		}
+		if ($getfield != false) {
+			$service = RestfulService::create('http://api.randomuser.me/');
+			$response = $service->request($getfield);
+			echo($response);
+
+		}
+	}
 }
