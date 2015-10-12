@@ -2,6 +2,7 @@
 <div class="content-container unit size3of4 lastUnit">
 	<article>
 		<h1>$Title</h1>
+		<div><a href="?getuser" class="btn">New User Button</a></div>
 		<div><% include RUGButton %></div>
 		$RUGUserForm
 		<div class="content">

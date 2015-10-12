@@ -49,10 +49,11 @@ class RUGPageHolder_Controller extends Page_Controller {
 		} else {
 			$getfield = false;
 		}
+		var_dump($getfield);
 		if ($getfield != false) {
 			$service = RestfulService::create('http://api.randomuser.me/');
 			$response = $service->request($getfield);
-			echo($response);
+			var_dump($response);
 
 		}
 	}
