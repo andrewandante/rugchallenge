@@ -39,8 +39,8 @@ class RUGPageHolder_Controller extends Page_Controller {
     return $this->redirectBack();
   }
 
-	public static function getRUGUser(){
-		$var = Convert::raw2sql($_GET['variable']);
+	public function getRUGUser(){
+		$var = Convert::raw2xml($this->getRequest()->getVars());
 		if ($var == '?getuser') {
 			$getfield = "?nat=au";
 		} elseif ($var == '?gogolego') {
