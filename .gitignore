@@ -11,3 +11,5 @@ vendor/
 framework/
 cms/
 phpunit
+siteconfig/
+reports/

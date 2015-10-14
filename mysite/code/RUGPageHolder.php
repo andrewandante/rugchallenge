@@ -18,7 +18,8 @@ class RUGPageHolder_Controller extends Page_Controller {
   }
 
   static $allowed_actions = array(
-    'RUGUserForm'
+    'RUGUserForm',
+    'createruguser'
   );
 
   public function RUGUserForm() {
@@ -39,11 +40,15 @@ class RUGPageHolder_Controller extends Page_Controller {
     return $this->redirectBack();
   }
 
-	public function getRUGUser(){
-		$var = Convert::raw2xml($this->getRequest()->getVars());
-		if ($var == '?getuser') {
+	public function createruguser(){
+	  
+	  $response = NULL;
+	  if (isset($_GET['a'])) {	
+		$var = Convert::raw2xml($this->getRequest()->getVar('a'));
+		var_dump($var);
+		if ($var == 'getuser') {
 			$getfield = "?nat=au";
-		} elseif ($var == '?gogolego') {
+		} elseif ($var == 'gogolego') {
 			$getfield = "?lego";
 			$isLego = true;
 		} else {
@@ -54,7 +59,9 @@ class RUGPageHolder_Controller extends Page_Controller {
 			$service = RestfulService::create('http://api.randomuser.me/');
 			$response = $service->request($getfield);
 			var_dump($response);
-
-		}
+		
+	    }
+	  } 
+	  return $response;
 	}
 }
