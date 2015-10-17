@@ -2,9 +2,9 @@
 <div class="content-container unit size3of4 lastUnit">
 	<article>
 		<h1>$Title</h1>
-		<div><a href="$AbsoluteLink?a=getuser" class="btn">New User Button</a></div>
+		<div><a href="$AbsoluteLink/getuser?rug" class="btn">New User Button</a></div>
 		<div><% include RUGButton %></div>
-		$RUGUserForm
+		<!-- $RUGUserForm -->
 		<div class="content">
 			<% if $Children %>
 				<% loop $Children %>

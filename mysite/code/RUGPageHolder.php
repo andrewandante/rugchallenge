@@ -40,28 +40,34 @@ class RUGPageHolder_Controller extends Page_Controller {
     return $this->redirectBack();
   }
 
-	public function createruguser(){
-	  
+	public function getuser(){
+
 	  $response = NULL;
-	  if (isset($_GET['a'])) {	
-		$var = Convert::raw2xml($this->getRequest()->getVar('a'));
+	  if (isset($_GET)) {
+		$var = Convert::raw2xml($this->getRequest()->getVars());
+		echo('var');
 		var_dump($var);
-		if ($var == 'getuser') {
+		if ($var[0] == 'rug') {
 			$getfield = "?nat=au";
-		} elseif ($var == 'gogolego') {
+		} elseif ($var[0] == 'lego') {
 			$getfield = "?lego";
 			$isLego = true;
 		} else {
 			$getfield = false;
 		}
+		echo('getfield');
 		var_dump($getfield);
 		if ($getfield != false) {
-			$service = RestfulService::create('http://api.randomuser.me/');
-			$response = $service->request($getfield);
+			$request = str('http://api.randomuser.me/' + $getfield);
+			echo('request');
+			var_dump($request);
+			$curl = curl_init($request);
+			$reponse = curl_exec($curl);
+			echo('response');
 			var_dump($response);
-		
+
 	    }
-	  } 
+	  }
 	  return $response;
 	}
 }
