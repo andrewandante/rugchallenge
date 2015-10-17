@@ -66,12 +66,15 @@ class RUGPageHolder_Controller extends Page_Controller {
 			var_dump($request);
 			$curl = curl_init($request);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-			$response = curl_exec($curl);
+			$response = json_decode(curl_exec($curl), true);
 			echo "response\n";
 			var_dump($response);
-			$response = json_decode($response);
-
-	    }
+		}
+	  	echo " ";
+		echo "\r\n";
+		echo "first name";
+		var_dump($response['results']['0']['user']['name']['first']);
+	  	
 	  }
 	  return $response;
 	}
