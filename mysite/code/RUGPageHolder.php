@@ -19,7 +19,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 
   static $allowed_actions = array(
     'RUGUserForm',
-    'createruguser'
+    'getuser'
   );
 
   public function RUGUserForm() {
@@ -42,29 +42,32 @@ class RUGPageHolder_Controller extends Page_Controller {
 
 	public function getuser(){
 
+
+	  echo "the function is running\n";
 	  $response = NULL;
 	  if (isset($_GET)) {
-		$var = Convert::raw2xml($this->getRequest()->getVars());
-		echo('var');
+		print_r($_GET);
+		$var = Convert::raw2xml(array_keys($_GET)[1]);
+		echo "var\n";
 		var_dump($var);
-		if ($var[0] == 'rug') {
+		if ($var == 'rug') {
 			$getfield = "?nat=au";
-		} elseif ($var[0] == 'lego') {
+		} elseif ($var == 'lego') {
 			$getfield = "?lego";
 			$isLego = true;
 		} else {
 			$getfield = false;
 		}
-		echo('getfield');
+		echo "getfield\n";
 		var_dump($getfield);
 		if ($getfield != false) {
-			$request = str('http://api.randomuser.me/' + $getfield);
-			echo('request');
+			$request = "http://api.randomuser.me/" . $getfield;
+			echo "request\n";
 			var_dump($request);
 			$curl = curl_init($request);
-			$reponse = curl_exec($curl);
-			echo('response');
-			var_dump($response);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($curl);
+			echo "response\n";
 
 	    }
 	  }
