@@ -61,16 +61,14 @@ class RUGPageHolder_Controller extends Page_Controller {
 			}
 			if ($response != NULL) {
 				$newmember = Member::create();
-				$fields = array(
-					'Firstname' => $response['results']['0']['user']['name']['first'],
-					'Surname' => $response['results']['0']['user']['name']['last'],
-					'Email' => $response['results']['0']['user']['email'],
-					'Username' => $response['results']['0']['user']['username'],
-					'Lego' => $isLego
-				);
+				$newmember->setField('Firstname', $response['results']['0']['user']['name']['first']);
+				$newmember->setField('Surname', $response['results']['0']['user']['name']['last']);
+				$newmember->setField('Email', $response['results']['0']['user']['email']);
+				$newmember->setField('Username', $response['results']['0']['user']['username']);
+				$newmember->setField('Lego', $isLego);
 				// var_dump($fields);
 				var_dump($newmember);
-				$fields->addTo($newmember);
+				// $fields->addTo($newmember);
 				$newmember->write();
 
 			}
