@@ -8,8 +8,12 @@ After:
 # See http://doc.silverstripe.org/framework/en/topics/configuration
 # Caution: Indentation through two spaces, not tabs
 SSViewer:
-  theme: 'simple'
+  theme: 'snugbugrug'
 
 RUGPageHolder:
   allowed_children:
     - 'RUGPage'
+
+Member:
+  extensions:
+    - RUGMemberExtension
