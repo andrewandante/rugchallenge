@@ -1,3 +1,3 @@
 <div>
-  <a id="RUGButton">Click here to make another!</a>
+  <a href="$Link/getuser?rug" id="RUGButton">Click here to make another!</a>
 </div>
