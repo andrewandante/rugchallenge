@@ -2,18 +2,16 @@
 <div class="content-container unit size3of4 lastUnit">
 	<article>
 		<h1>$Title</h1>
-		<div><a href="$AbsoluteLink" . "getuser?rug" class="btn">New User Button</a></div>
+		<div><% include StatusMessage %></div>
 		<div><% include RUGButton %></div>
-		<!-- $RUGUserForm -->
 		<div class="content">
-			<% if $Children %>
-				<% loop $Children %>
-					<div>
-						<h2><a href="$Link">$Name</a></h2>
-						<% with $PicThumb %>
-						<img src="$URL" alt="" />
-						<% end_with %>
-					</div>
+			<% if $RUGUsers %>
+				<% loop $RUGUsers.Sort('Created').Reverse %>
+					<% if $First && $Top.StatusMessage %>
+						<div class="ruguserlist flash">$Thumbnail<a href="$Link">$Name</a></div>
+					<% else %>
+					<div class="ruguserlist">$Thumbnail<a href="$Link">$Name</a></div>
+					<% end_if %>
 				<% end_loop %>
 			<% else %>
 				<div>
@@ -22,6 +20,4 @@
 			<% end_if %>
 		</div>
 	</article>
-		$Form
-		$CommentsForm
 </div>

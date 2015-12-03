@@ -266,26 +266,3 @@ address {
   display: block;
   margin-bottom: 20px;
 }
-
-/* RUGButton Styling
--------------------------------------------- */
-#RUGButton {
-  float: none;
-  background-color: #ee8800;
-  color: white;
-  width: 80%;
-  text-align: center;
-  border-radius: 5px;
-  display: block;
-  margin: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: solid 1px;
-  border-color: #ff9911;
-  font-size: 15px;
-  padding: 6px 15px;
-}
-#RUGButton:hover {
-  background-color: #dd7700;
-  cursor: pointer;
-}
