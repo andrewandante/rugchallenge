@@ -11,7 +11,7 @@ class Page extends SiteTree {
 class Page_Controller extends ContentController {
 
 
-	private static $allowed_actions = array (
+	private static $allowed_actions = array(
 	);
 
 	public function init() {
