@@ -11,18 +11,18 @@ class RUGPageHolder extends Page {
 class RUGPageHolder_Controller extends Page_Controller {
 
   static $allowed_actions = array(
-    'getuser',
+	'getuser',
 		'StatusMessage'
   );
 
 	private static $_message = array();
 
 	public function StatusMessage() {
-		if(!empty(self::$_message)) {
+		if (!empty(self::$_message)) {
 			return new ArrayData(self::$_message);
 		}
 
-		if(Session::get('ActionMessage')) {
+		if (Session::get('ActionMessage')) {
 			$message = Session::get('ActionMessage');
 			$status = Session::get('ActionStatus');
 
@@ -36,7 +36,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 		return false;
 	}
 
-	public function getuser(){
+	public function getuser() {
 
 	  $response = NULL;
 	  if (isset($_GET)) {
@@ -66,9 +66,9 @@ class RUGPageHolder_Controller extends Page_Controller {
 				// $newmember->setField('Portrait', $response['results']['0']['user']['picture']['large']);
 
 				$newthumb = file_get_contents($response['results']['0']['user']['picture']['thumbnail']);
-				$thumbpath = 'assets/thumbs/' . $newmember->FirstName . '-' . $newmember->Surname. '.jpg';
+				$thumbpath = 'assets/thumbs/' . $newmember->FirstName . '-' . $newmember->Surname . '.jpg';
 				file_put_contents(BASE_PATH . '/' . $thumbpath, $newthumb);
-				$thumbname = $newmember->FirstName . '-' . $newmember->Surname. '.jpg';
+				$thumbname = $newmember->FirstName . '-' . $newmember->Surname . '.jpg';
 				$thumbfile = Image::create();
 				$thumbfile->Name = $thumbname;
 				$thumbfile->ParentID = 7;

@@ -85,7 +85,7 @@ class RUGPage_Controller extends Page_Controller {
 	 *
 	 * @var array
 	 */
-	private static $allowed_actions = array (
+	private static $allowed_actions = array(
 	);
 
 	public function init() {
