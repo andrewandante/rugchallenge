@@ -16,7 +16,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 	}
 
   static $allowed_actions = array(
-	'getuser',
+		'getuser',
 		'StatusMessage'
   );
 
@@ -92,6 +92,15 @@ class RUGPageHolder_Controller extends Page_Controller {
 	}
 
 	public function getRUGUsers() {
-		return Group::get()->filter(array('Code' => 'RUGUsers'))->first()->Members();
+		$list = Group::get()->filter(array('Code' => 'RUGUsers'))->first()->Members()->sort('Created DESC');
+		$pages = new PaginatedList($list, $this->getRequest());
+		$pages->setPageLength(2);
+		return $pages;
 	}
+
+	// public function getPaginatedUsers() {
+	// 	$list = Page::get();
+	//
+	// 	return new PaginatedList($list, $this->getRequest());
+	// }
 }

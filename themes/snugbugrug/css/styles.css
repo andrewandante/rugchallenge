@@ -19,7 +19,33 @@
 	margin: 4px;
 	line-height: 90px;
 	color: #ee8800;
+}
 
+.ruguserlist a:hover {
+	color: orange;
+	text-decoration: none;
+	border-bottom: none;
+}
+
+a.pagtags {
+	font-size: 20px;
+	color: #ee8800;
+}
+
+a.pagtags:hover {
+	color: orange;
+	border-bottom-color: orange;
+}
+
+a.currentpagtag {
+	font-size: 20px;
+	color: lightgray;
+}
+
+a.currentpagtag:hover {
+	text-decoration: none;
+	border-bottom: none;
+	color: lightgray;
 }
 
 
