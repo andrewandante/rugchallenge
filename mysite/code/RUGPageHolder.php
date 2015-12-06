@@ -10,6 +10,11 @@ class RUGPageHolder extends Page {
 }
 class RUGPageHolder_Controller extends Page_Controller {
 
+	public function init() {
+		parent::init();
+
+	}
+
   static $allowed_actions = array(
 	'getuser',
 		'StatusMessage'

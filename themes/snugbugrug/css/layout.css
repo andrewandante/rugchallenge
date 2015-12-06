@@ -36,6 +36,9 @@
 * https://github.com/stubbornella/oocss/wiki/grids
 */
 
+/*Include styles.css for RUGUserList*/
+@import "styles.css";
+
 .line, /* line - Groups units on one horizontal line. Note: for mobile layout units may be stacked to avoid horizontal scrolling. */
 .lastUnit {
 	overflow:hidden;
@@ -844,66 +847,4 @@ body h1 span.amp {
     nav.primary {
 	    display: none;
 	}
-}
-
-.ruguserlist {
-	clear:both;
-	margin-bottom: 20px;
-	margin-left: 10px;
-	border-bottom: lightgray solid 1px;
-	transition: all 0.3s ease;
-}
-.ruguserlist img {
-	float: left;
-	margin-bottom: 15px;
-}
-
-.ruguserlist a {
-	font-size: 42px;
-	padding: 10px;
-	margin: 4px;
-	line-height: 90px;
-	color: #ee8800;
-
-}
-
-
-/* RUGButton Styling
--------------------------------------------- */
-#RUGButton {
-  background-color: #ee8800;
-  color: white;
-  width: 70%;
-  text-align: center;
-  border-radius: 5px;
-  margin: auto;
-	margin-bottom: 15px;
-  text-transform: uppercase;
-	font-size: 30px;
-	line-height: 32px;
-  letter-spacing: 1px;
-  border: solid 1px;
-  border-color: #ff9911;
-  padding: 15px;
-	clear: both;
-	display: block;
-
-
-}
-#RUGButton:hover {
-  background-color: orange;
-  cursor: pointer;
-}
-
-/* Message Styling
-------------------------*/
-
-.flash {
-  background-color: green;
-  border: solid 2px;
-  border-color: #008833;
-}
-
-.flash a {
-	color: white;
 }
