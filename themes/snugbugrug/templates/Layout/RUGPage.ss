@@ -6,7 +6,7 @@
 		<h1>$FirstName $Surname</h1>
 		<div class="content">
       <h2>$Email ($Username)</h2>
-      <img src='$PicL.URL' alt="">
+      <img src='$Large.URL' alt="">
     </div>
     <div class="content">
 			<a href="$BaseURL">Back</a>

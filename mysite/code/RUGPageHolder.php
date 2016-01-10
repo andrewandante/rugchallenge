@@ -42,6 +42,19 @@ class RUGPageHolder_Controller extends Page_Controller {
 		return false;
 	}
 
+	public function grabRUGImage($call, $xmember, $type, $folderid) {
+		$newimage = file_get_contents($call['results']['0']['user']['picture'][$type]);
+		$imagename = $xmember->FirstName . '-' . $xmember->Surname . '-' . $type . '.jpg';
+		$imagepath = 'assets/' . $type . '/' . $imagename;
+		file_put_contents(BASE_PATH . '/' . $imagepath, $newimage);
+		$imagefile = Image::create();
+		$imagefile->Name = $imagename;
+		$imagefile->ParentID = $folderid;
+		$imagefile->write();
+
+		return $imagefile->ID;
+	}
+
 	public function getuser() {
 
 	  $response = false;
@@ -69,19 +82,10 @@ class RUGPageHolder_Controller extends Page_Controller {
 				$newmember->setField('Email', $response['results']['0']['user']['email']);
 				$newmember->setField('Username', $response['results']['0']['user']['username']);
 				$newmember->setField('Lego', $isLego);
-				// $newmember->setField('Portrait', $response['results']['0']['user']['picture']['large']);
 
-				$newthumb = file_get_contents($response['results']['0']['user']['picture']['thumbnail']);
-				$thumbpath = 'assets/thumbs/' . $newmember->FirstName . '-' . $newmember->Surname . '.jpg';
-				file_put_contents(BASE_PATH . '/' . $thumbpath, $newthumb);
-				$thumbname = $newmember->FirstName . '-' . $newmember->Surname . '.jpg';
-				$thumbfile = Image::create();
-				$thumbfile->Name = $thumbname;
-				$thumbfile->ParentID = 7;
+				$newmember->ThumbnailID = $this->grabRUGImage($response, $newmember, 'thumbnail', 7);
+				$newmember->LargeID = $this->grabRUGImage($response, $newmember, 'large', 132);
 
-				$thumbfile->write();
-
-				$newmember->ThumbnailID = $thumbfile->ID;
 				$newmember->write();
 				$newmember->addToGroupByCode('RUGUsers');
 				Session::set('ActionStatus', 'success');
@@ -89,7 +93,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 			}
 		}
 
-	return $this->redirectBack();
+	return $this->redirectBack('/');
 	}
 
 	public function getRUGUsers() {
