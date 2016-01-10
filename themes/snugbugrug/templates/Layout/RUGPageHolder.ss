@@ -12,9 +12,7 @@
 					<% end_if %>
 				<% end_loop %>
 			<% else %>
-				<div>
-					<h2>No users generated!</h2>
-				</div>
+				$Content
 			<% end_if %>
 		</div>
 		<% if $RUGUsers.MoreThanOnePage %>
