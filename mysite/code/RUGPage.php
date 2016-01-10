@@ -1,12 +1,7 @@
 <?php
 class RUGPage extends Page {
 
-	private static $db = array(
-		// 'Name' => 'Varchar(50)',
-		// 'Street' => 'Varchar(50)',
-		// 'Email' => 'Varchar(50)',
-		// 'Username' => 'Varchar(50)',
-	);
+	private static $db = array();
 
 	private static $can_be_root = false;
 
