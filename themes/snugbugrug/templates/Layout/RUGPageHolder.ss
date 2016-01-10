@@ -6,9 +6,9 @@
 			<% if $RUGUsers %>
 				<% loop $RUGUsers %>
 					<% if $First && $Top.StatusMessage %>
-						<div class="ruguserlist flash">$Thumbnail<a href="$Link">$Name</a></div>
+						<div class="ruguserlist flash">$Thumbnail<a href="$BaseURL/user?id=$ID">$Name</a></div>
 					<% else %>
-					<div class="ruguserlist">$Thumbnail<a href="$Link">$Name</a></div>
+					<div class="ruguserlist">$Thumbnail<a href="$BaseURL/user?id=$ID">$Name</a></div>
 					<% end_if %>
 				<% end_loop %>
 			<% else %>

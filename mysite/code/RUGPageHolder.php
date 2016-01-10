@@ -8,6 +8,7 @@ class RUGPageHolder extends Page {
 	);
 
 }
+
 class RUGPageHolder_Controller extends Page_Controller {
 
 	public function init() {
@@ -43,7 +44,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 
 	public function getuser() {
 
-	  $response = NULL;
+	  $response = false;
 	  if (isset($_GET)) {
 			$var = Convert::raw2xml(array_keys($_GET)[1]);
 			if ($var == 'rug') {
@@ -55,13 +56,13 @@ class RUGPageHolder_Controller extends Page_Controller {
 			} else {
 				$getfield = false;
 			}
-			if ($getfield != false) {
+			if ($getfield) {
 				$request = "http://api.randomuser.me/" . $getfield;
 				$curl = curl_init($request);
 				curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 				$response = json_decode(curl_exec($curl), true);
 			}
-			if ($response != NULL) {
+			if ($response) {
 				$newmember = Member::create();
 				$newmember->setField('FirstName', ucfirst($response['results']['0']['user']['name']['first']));
 				$newmember->setField('Surname', ucfirst($response['results']['0']['user']['name']['last']));
@@ -94,7 +95,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 	public function getRUGUsers() {
 		$list = Group::get()->filter(array('Code' => 'RUGUsers'))->first()->Members()->sort('Created DESC');
 		$pages = new PaginatedList($list, $this->getRequest());
-		$pages->setPageLength(2);
+		$pages->setPageLength(4); // Should be 4 probably
 		return $pages;
 	}
 }

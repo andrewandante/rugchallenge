@@ -1,25 +1,21 @@
 <% include SideBar %>
 <div class="content-container unit size3of4 lastUnit">
 	<article>
-		<h1>$Name</h1>
+		<% if $Profile %>
+		<% with $Profile %>
+		<h1>$FirstName $Surname</h1>
 		<div class="content">
       <h2>$Email ($Username)</h2>
       <img src='$PicL.URL' alt="">
     </div>
     <div class="content">
-      <h3>Address Information</h3>
-      <ul>
-        <li>$Street</li>
-        <li>$City</li>
-        <li>$State</li>
-        <li>$Zip</li>
-        <li>$Nationality</li>
-      </ul>
+			<a href="$BaseURL">Back</a>
     </div>
-    <div class="content">
+    <% end_with %>
+		<% else %>
+		<div class="content">
       $Content
     </div>
+		<% end_if %>
 	</article>
-		$Form
-		$CommentsForm
 </div>
