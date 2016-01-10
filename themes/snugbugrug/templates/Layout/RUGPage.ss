@@ -5,10 +5,13 @@
 		<% with $Profile %>
 		<h1>$FirstName $Surname</h1>
 		<div class="content">
-      <h2>$Email ($Username)</h2>
-      <img src='$Large.URL' alt="">
-    </div>
-    <div class="content">
+      <img src='$Large.URL' alt="$Large.Name" class='largepic'>
+			<div class="rugcontent">
+				<h3>$Email</h3>
+				<h3>($Username)</h3>
+			</div>
+		</div>
+    <div class="content" style="width: 100%; clear: both; padding: 5px">
 			<a href="$BaseURL">Back</a>
     </div>
     <% end_with %>

@@ -14,7 +14,7 @@
 }
 
 .ruguserlist a {
-	font-size: 42px;
+	font-size: 24px;
 	padding: 10px;
 	margin: 4px;
 	line-height: 90px;
@@ -87,4 +87,25 @@ a.currentpagtag:hover {
 
 .flash a {
 	color: white;
+}
+
+
+/* RUGPage Styling
+-------------------------*/
+
+.content img.largepic {
+	float: left;
+	max-width: 50%;
+	max-height: 50%;
+}
+
+.rugcontent {
+	float: right;
+	max-width: 50%;
+	max-height: 50%;
+	padding: 5px;
+}
+
+.rugcontent h3 {
+	
 }
