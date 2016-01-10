@@ -42,6 +42,11 @@ class RUGPageHolder_Controller extends Page_Controller {
 		return false;
 	}
 
+	/**
+	 * @param Member $xmember
+	 * @param string $type
+	 * @param integer $folderid
+	 */
 	public function grabRUGImage($call, $xmember, $type, $folderid) {
 		$newimage = file_get_contents($call['results']['0']['user']['picture'][$type]);
 		$imagename = $xmember->FirstName . '-' . $xmember->Surname . '-' . $type . '.jpg';
