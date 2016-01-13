@@ -1,8 +1,6 @@
 <?php
 class RUGPage extends Page {
 
-	private static $db = array();
-
 	private static $can_be_root = false;
 
 }
