@@ -7,6 +7,11 @@ class RUGPageHolder extends Page {
 	private static $has_one = array(
 	);
 
+	public function getRUGList() {
+
+		return Group::get()->filter(array('Code' => 'RUGUsers'))->first()->Members()->sort('Created DESC');
+	}
+
 }
 
 class RUGPageHolder_Controller extends Page_Controller {
@@ -97,7 +102,7 @@ class RUGPageHolder_Controller extends Page_Controller {
 	}
 
 	public function getRUGUsers() {
-		$list = Group::get()->filter(array('Code' => 'RUGUsers'))->first()->Members()->sort('Created DESC');
+		$list = $this->dataRecord->getRUGList();
 		$pages = new PaginatedList($list, $this->getRequest());
 		$pages->setPageLength(4); // Should be 4 probably
 		return $pages;
