@@ -13,3 +13,5 @@ cms/
 phpunit
 siteconfig/
 reports/
+crontask/
+silverstripe-dynamodb/
